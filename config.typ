@@ -118,7 +118,7 @@
 #let template-post(..args) = {
   set page(height: auto, width: 30cm)
   set text(16pt, font: ("IBM Plex Sans SC"), lang: "zh")
-  show raw: text.with(font: ("Zed Plex Mono", "IBM Plex Sans SC"))
+  show raw: text.with(font: ("IBM Plex Mono", "IBM Plex Sans SC", "DejaVu Sans Mono"))
   show math.equation: set text(16pt)
   set table(inset: 8pt)
   set grid(inset: 8pt)

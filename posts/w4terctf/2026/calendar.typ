@@ -1,6 +1,5 @@
 #let get-calendar(months) = {
   set text(15pt)
-  show raw: set text(font: ("IBM Plex Mono", "Jetbrains Mono", "Consolas", "Ubuntu Mono", "DejaVu Sans Mono"))
 
   let elem-background = (
     ("0123456789", yellow),
