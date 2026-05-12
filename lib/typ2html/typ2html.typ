@@ -25,8 +25,8 @@
       html.elem("section", attrs: (role: "doc-endnotes"))[
         #html.hr()
         #html.ol({
-          for it in footnotes {
-            let number = counter(footnote).display(it.numbering)
+          for (i, it) in footnotes.enumerate() {
+            let number = str(i + 1)
             let fn-id = "fn-" + number
             let ref-id = "fnref-" + number
 
