@@ -3,15 +3,13 @@
 
 #show: template-post.with(
   title: "第 43 次 CCF CSP 认证 T4 T5 题解",
-  description: "本文包含第 43 次 CCF CSP 认证 T4 “选数游戏” 和 T5 “奇” 的题解。",
+  description: "本文包含第 43 次 CCF CSP 认证 T4 “数字分组” 和 T5 “奇” 的题解。",
   tags: ("数论", "数据结构", "图论"),
   category: "CCF CSP 题解",
   date: datetime(year: 2026, month: 9, day: 13)
 )
 
-*T4 的实际题目名称仍在确定中。*
-
-= T4 选数游戏
+= T4 数字分组
 
 #note(title: "题目描述")[
   给定一个长度为 $n$ 的数组 $a$，满足元素*两两不同*，另外给定一个整数 $k$ 和操作类型 $o p in {0, 1}$。
