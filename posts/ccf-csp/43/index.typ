@@ -6,7 +6,7 @@
   description: "本文包含第 43 次 CCF CSP 认证 T4 “选数游戏” 和 T5 “奇” 的题解。",
   tags: ("数论", "数据结构", "图论"),
   category: "CCF CSP 题解",
-  date: datetime(year: 2026, month: 3, day: 30)
+  date: datetime(year: 2026, month: 9, day: 13)
 )
 
 *T4 的实际题目名称仍在确定中。*
