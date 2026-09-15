@@ -186,6 +186,35 @@
   })
 }
 
+#let render-giscus(giscus-config) = context {
+  if giscus-config == none {
+    ()
+  } else {
+    html-guard(() => {
+      html.div(class: "post-comments", {
+        html.div(class: "giscus")
+      })
+
+      let json-escape(value) = {
+        let s1 = str(value)
+        let s2 = s1.replace("\\", "\\\\")
+        let s3 = s2.replace("\"", "\\\"")
+        let s4 = s3.replace("\n", "\\n")
+        let s5 = s4.replace("\r", "\\r")
+        s5.replace("\t", "\\t")
+      }
+      let json-string(value) = "\"" + json-escape(value) + "\""
+
+      let json-parts = giscus-config.pairs().map(((key, value)) => {
+        json-string(key) + ":" + json-string(value)
+      })
+      let config-json = "{" + json-parts.join(",") + "}"
+
+      html.elem("script", attrs: (type: "application/json", id: "giscus-config"), config-json)
+    })
+  }
+}
+
 #let typ2html-post(
   header-links: none,
   site-title: "Typst Blog",
@@ -207,6 +236,7 @@
   custom-script: (),
   footer-content: none,
   tag-options: (:),
+  giscus-config: none,
 
   tags: (),
   category: "",
@@ -267,6 +297,7 @@
             content
             render-footnotes()
             render-meta(tags, category, date-string-localized, tag-options: tag-options)
+            render-giscus(giscus-config)
           })
         })
       }),
@@ -344,6 +375,7 @@
   website-url: query-input("website-url", default: none),
   author: query-input("author", default: none),
   tag-options: (:),
+  giscus-config: none,
 
   post-css: (
     "/assets/core/font.css",
@@ -354,6 +386,7 @@
     "/assets/core/render-code.js",
     "/assets/core/theme.js",
     "/assets/core/post-nav-switch.js",
+    "/assets/core/giscus-theme.js",
   ),
 
   page-css: (
@@ -391,6 +424,7 @@
     website-url: website-url,
     author: author,
     tag-options: tag-options,
+    giscus-config: giscus-config,
   ),
   page: typ2html-page.with(
     header-links: header-links,

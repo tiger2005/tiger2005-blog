@@ -216,3 +216,16 @@
   flex-direction: column;
   margin-bottom: 3rem;
 }
+
+.post-comments {
+  margin-top: 3rem;
+}
+
+.giscus,
+.giscus-frame {
+  width: 100%;
+}
+
+.giscus-frame {
+  border: 0;
+}

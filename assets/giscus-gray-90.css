@@ -1,0 +1,59 @@
+main {
+  --color-fg-default: #f4f4f4;
+
+  --color-canvas-default: #262626;
+  --color-canvas-overlay: #393939;
+  --color-canvas-inset: #262626;
+  --color-canvas-subtle: #393939;
+
+  --color-border-default: #525252;
+  --color-border-muted: #6f6f6f;
+
+  --color-btn-bg: #393939;
+  --color-btn-hover-bg: #4c4c4c;
+  --color-btn-active-bg: #525252;
+  --color-btn-selected-bg: #393939;
+
+  --color-segmented-control-button-bg: #262626;
+
+  --color-scale-gray-7: #393939;
+
+  --color-prettylights-syntax-comment: #8b949e;
+  --color-prettylights-syntax-constant: #79c0ff;
+  --color-prettylights-syntax-entity: #d2a8ff;
+  --color-prettylights-syntax-storage-modifier-import: var(--color-fg-default);
+  --color-prettylights-syntax-entity-tag: #7ee787;
+  --color-prettylights-syntax-keyword: #ff7b72;
+  --color-prettylights-syntax-string: #a5d6ff;
+  --color-prettylights-syntax-variable: #ffa657;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+  --color-prettylights-syntax-invalid-illegal-text: #f4f4f4;
+  --color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+  --color-prettylights-syntax-carriage-return-text: #f4f4f4;
+  --color-prettylights-syntax-carriage-return-bg: #b62324;
+  --color-prettylights-syntax-string-regexp: #7ee787;
+  --color-prettylights-syntax-markup-list: #f2cc60;
+  --color-prettylights-syntax-markup-heading: #0f62fe;
+  --color-prettylights-syntax-markup-italic: var(--color-fg-default);
+  --color-prettylights-syntax-markup-bold: var(--color-fg-default);
+  --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+  --color-prettylights-syntax-markup-deleted-bg: #67060c;
+  --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+  --color-prettylights-syntax-markup-inserted-bg: #033a16;
+  --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+  --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+  --color-prettylights-syntax-markup-ignored-text: #f4f4f4;
+  --color-prettylights-syntax-markup-ignored-bg: #0f62fe;
+  --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+  --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
+  --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+}
+
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg");
+}
+
+main .gsc-loading-image {
+  background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+}

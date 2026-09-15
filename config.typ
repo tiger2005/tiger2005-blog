@@ -90,6 +90,20 @@
   "CTF": ("preset": "green", "icon": "/assets/icons/flag.svg")
 )
 
+#let giscus-config = (
+  repo: "tiger2005/tiger2005-blog-giscus",
+  "repo-id": "R_kgDOUa9KCw",
+  category: "Announcements",
+  "category-id": "DIC_kwDOUa9KC84DFmvP",
+  mapping: "pathname",
+  strict: "0",
+  "reactions-enabled": "1",
+  "emit-metadata": "0",
+  "input-position": "top",
+  lang: "zh-CN",
+  loading: "lazy",
+)
+
 #let render-tag-link = render-tag-link.with(tag-options: tag-options)
 #let render-tag-card = render-tag-card.with(tag-options: tag-options)
 
@@ -106,6 +120,7 @@
   lang: "zh",
   footer-content: footer-content,
   tag-options: tag-options,
+  giscus-config: giscus-config,
   custom-css: (
     "/assets/custom.css",
   ),
