@@ -66,7 +66,7 @@
           " 次。"
         })
         html.div(
-          link("https://github.com/tiger2005/tiger2005.github.io/blob/master/" + current-source-path)[查看本页源代码]
+          link("https://github.com/tiger2005/tiger2005-blog/blob/master/" + current-source-path)[查看本页源代码]
         )
         html.div(
           link("/rss.xml")[RSS 订阅]
