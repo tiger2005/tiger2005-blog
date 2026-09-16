@@ -59,7 +59,21 @@ const setTheme = (theme) => {
   );
 };
 
+const prefetchThemes = () => {
+  for (const href of Object.values(THEME_MAP)) {
+    if (document.querySelector('link[rel="prefetch"][href="' + href + '"]')) continue;
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "style";
+    link.crossOrigin = "anonymous";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+};
+
 const init = () => {
+  prefetchThemes();
+
   const container = document.querySelector(GISCUS_CONTAINER);
   if (!container) return;
 
