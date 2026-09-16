@@ -1,21 +1,78 @@
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("IBM Plex Sans"), local("IBMPlexSans"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-sans@1.1.0/fonts/complete/woff2/IBMPlexSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: local("IBM Plex Sans Medium"), local("IBMPlexSans-Medium"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-sans@1.1.0/fonts/complete/woff2/IBMPlexSans-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-sans@1.1.0/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local("IBM Plex Sans Bold"), local("IBMPlexSans-Bold"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-sans@1.1.0/fonts/complete/woff2/IBMPlexSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: local("IBM Plex Mono"), local("IBMPlexMono"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-mono@1.1.0/fonts/complete/woff2/IBMPlexMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  src: local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-mono@1.1.0/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 700;
+  src: local("IBM Plex Mono Bold"), local("IBMPlexMono-Bold"), url("https://cdn.jsdelivr.net/npm/@ibm/plex-mono@1.1.0/fonts/complete/woff2/IBMPlexMono-Bold.woff2") format("woff2");
+}
+
 main {
-  /* 文字 */
+  --font-family-sans: "IBM Plex Sans", "IBM Plex Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --font-family-monospace: "IBM Plex Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-family-default: var(--font-family-sans);
+  font-family: var(--font-family-default);
+
   --color-fg-default: #161616;
   --color-fg-muted: #525252;
   --color-fg-subtle: #6f6f6f;
 
-  /* 表面 */
   --color-canvas-default: #ffffff;
   --color-canvas-overlay: #f4f4f4;
   --color-canvas-inset: #ffffff;
   --color-canvas-subtle: #f4f4f4;
 
-  /* 边框 */
   --color-border-default: #c6c6c6;
   --color-border-muted: #e0e0e0;
   --color-neutral-muted: rgb(22 22 22 / 10%);
 
-  /* 普通按钮 */
   --color-btn-text: #161616;
   --color-btn-bg: #f4f4f4;
   --color-btn-border: #c6c6c6;
@@ -28,7 +85,6 @@ main {
   --color-btn-selected-bg: #e8e8e8;
   --color-btn-counter-bg: #c6c6c6;
 
-  /* 主按钮 */
   --color-btn-primary-text: #ffffff;
   --color-btn-primary-bg: #0f62fe;
   --color-btn-primary-border: transparent;
@@ -42,13 +98,11 @@ main {
   --color-btn-primary-disabled-bg: rgb(15 98 254 / 40%);
   --color-btn-primary-disabled-border: transparent;
 
-  /* 列表 / 分段选择器 */
   --color-action-list-item-default-hover-bg: #e8e8e8;
   --color-segmented-control-bg: #e0e0e0;
   --color-segmented-control-button-bg: #ffffff;
   --color-segmented-control-button-selected-border: #a8a8a8;
 
-  /* 强调与语义色（Carbon） */
   --color-accent-fg: #0f62fe;
   --color-accent-emphasis: #0f62fe;
   --color-accent-muted: rgb(15 98 254 / 40%);
@@ -57,14 +111,12 @@ main {
   --color-attention-fg: #8e6a00;
   --color-danger-fg: #da1e28;
 
-  /* 阴影 / 反应色板 */
   --color-primer-shadow-inset: 0 0 transparent;
   --color-scale-gray-1: #e0e0e0;
   --color-scale-blue-1: #d0e2ff;
   --color-social-reaction-bg-hover: var(--color-scale-gray-1);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
 
-  /* 语法高亮（GitHub light） */
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
   --color-prettylights-syntax-entity: #8250df;
