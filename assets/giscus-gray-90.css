@@ -1,23 +1,70 @@
 main {
+  /* 文字 */
   --color-fg-default: #f4f4f4;
+  --color-fg-muted: #c6c6c6;
+  --color-fg-subtle: #a8a8a8;
 
+  /* 表面 */
   --color-canvas-default: #262626;
   --color-canvas-overlay: #393939;
-  --color-canvas-inset: #262626;
+  --color-canvas-inset: #161616;
   --color-canvas-subtle: #393939;
 
+  /* 边框 */
   --color-border-default: #525252;
   --color-border-muted: #6f6f6f;
+  --color-neutral-muted: rgb(244 244 244 / 12%);
 
+  /* 普通按钮 */
+  --color-btn-text: #f4f4f4;
   --color-btn-bg: #393939;
+  --color-btn-border: #525252;
+  --color-btn-shadow: 0 0 transparent;
+  --color-btn-inset-shadow: 0 0 transparent;
   --color-btn-hover-bg: #4c4c4c;
+  --color-btn-hover-border: #6f6f6f;
   --color-btn-active-bg: #525252;
+  --color-btn-active-border: #6f6f6f;
   --color-btn-selected-bg: #393939;
+  --color-btn-counter-bg: #6f6f6f;
 
+  /* 主按钮 */
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #0f62fe;
+  --color-btn-primary-border: transparent;
+  --color-btn-primary-shadow: 0 0 transparent;
+  --color-btn-primary-inset-shadow: 0 0 transparent;
+  --color-btn-primary-hover-bg: #0050e6;
+  --color-btn-primary-hover-border: #0050e6;
+  --color-btn-primary-selected-bg: #002d9c;
+  --color-btn-primary-selected-shadow: 0 0 transparent;
+  --color-btn-primary-disabled-text: rgb(255 255 255 / 50%);
+  --color-btn-primary-disabled-bg: rgb(15 98 254 / 40%);
+  --color-btn-primary-disabled-border: transparent;
+
+  /* 列表 / 分段选择器 */
+  --color-action-list-item-default-hover-bg: #4c4c4c;
+  --color-segmented-control-bg: #161616;
   --color-segmented-control-button-bg: #262626;
+  --color-segmented-control-button-selected-border: #8d8d8d;
 
+  /* 强调与语义色（Carbon） */
+  --color-accent-fg: #78a9ff;
+  --color-accent-emphasis: #4589ff;
+  --color-accent-muted: rgb(120 169 255 / 40%);
+  --color-accent-subtle: rgb(120 169 255 / 12%);
+  --color-success-fg: #42be65;
+  --color-attention-fg: #f1c21b;
+  --color-danger-fg: #ff8389;
+
+  /* 阴影 / 反应色板 */
+  --color-primer-shadow-inset: 0 0 transparent;
   --color-scale-gray-7: #393939;
+  --color-scale-blue-8: #002d9c;
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
 
+  /* 语法高亮（GitHub dark） */
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -48,6 +95,10 @@ main {
   --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
   --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
   --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+}
+
+main .gsc-comment-box-textarea::placeholder {
+  color: #a8a8a8;
 }
 
 main .pagination-loader-container {
