@@ -71,6 +71,11 @@ const prefetchThemes = () => {
   }
 };
 
+const syncGiscusTheme = () => {
+  setTheme(getTheme());
+};
+window.syncGiscusTheme = syncGiscusTheme;
+
 const init = () => {
   prefetchThemes();
 
@@ -86,18 +91,6 @@ const init = () => {
   }
 
   container.appendChild(createScript(cfg, getTheme()));
-
-  new MutationObserver((mutations) => {
-    for (const m of mutations) {
-      if (m.type === "attributes" && m.attributeName === "data-theme") {
-        setTheme(getTheme());
-        return;
-      }
-    }
-  }).observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ["data-theme"],
-  });
 };
 
 if (document.readyState === "loading") {

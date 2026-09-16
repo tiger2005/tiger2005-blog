@@ -37,6 +37,8 @@ const applyTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
   });
   saveTheme(theme);
+
+  window.syncGiscusTheme?.();
 };
 
 const getInitialTheme = () => {
