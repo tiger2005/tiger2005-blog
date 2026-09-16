@@ -1,16 +1,13 @@
-// idea from https://github.com/xiaohongrsx/xiaohongrsx.github.io/commit/58e8b6eac1ee3da2586d16ec965a80e40206a445 
 const GISCUS_CLIENT_URL = "https://giscus.app/client.js";
 const GISCUS_ORIGIN = "https://giscus.app";
 const GISCUS_CONTAINER = ".giscus";
 const GISCUS_IFRAME = "iframe.giscus-frame";
 
-const toAbsoluteUrl = (path) => new URL(path, window.location.origin).href;
-
 const THEME_MAP = {
-  white: toAbsoluteUrl("/assets/giscus-white.css"),
-  "gray-10": toAbsoluteUrl("/assets/giscus-gray-10.css"),
-  "gray-90": toAbsoluteUrl("/assets/giscus-gray-90.css"),
-  "gray-100": toAbsoluteUrl("/assets/giscus-gray-100.css"),
+  white: "/assets/giscus-white.css",
+  "gray-10": "/assets/giscus-gray-10.css",
+  "gray-90": "/assets/giscus-gray-90.css",
+  "gray-100": "/assets/giscus-gray-100.css",
 };
 
 const getConfig = () => {
@@ -59,26 +56,12 @@ const setTheme = (theme) => {
   );
 };
 
-const prefetchThemes = () => {
-  for (const href of Object.values(THEME_MAP)) {
-    if (document.querySelector('link[rel="prefetch"][href="' + href + '"]')) continue;
-    const link = document.createElement("link");
-    link.rel = "prefetch";
-    link.as = "style";
-    link.crossOrigin = "anonymous";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-};
-
 const syncGiscusTheme = () => {
   setTheme(getTheme());
 };
 window.syncGiscusTheme = syncGiscusTheme;
 
 const init = () => {
-  prefetchThemes();
-
   const container = document.querySelector(GISCUS_CONTAINER);
   if (!container) return;
 
