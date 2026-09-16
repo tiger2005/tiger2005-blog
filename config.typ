@@ -101,7 +101,7 @@
   "emit-metadata": "0",
   "input-position": "top",
   lang: "zh-CN",
-  loading: "lazy",
+  // loading: "lazy",
 )
 
 #let render-tag-link = render-tag-link.with(tag-options: tag-options)
