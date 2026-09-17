@@ -66,11 +66,11 @@ main {
 
   --color-canvas-default: #f4f4f4;
   --color-canvas-overlay: #ffffff;
-  --color-canvas-inset: #e0e0e0;
+  --color-canvas-inset: #e8e8e8;
   --color-canvas-subtle: #ffffff;
 
   --color-border-default: #c6c6c6;
-  --color-border-muted: #e0e0e0;
+  --color-border-muted: #d1d1d1;
   --color-neutral-muted: #ffffff;
 
   --color-btn-text: #161616;
