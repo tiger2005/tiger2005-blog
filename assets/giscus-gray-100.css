@@ -158,6 +158,27 @@ main .pagination-loader-container {
   background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg");
 }
 
+main .gsc-comment,
+main .gsc-comment-box,
+main .gsc-comment-box textarea {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+main .markdown .highlight pre,
+main .markdown pre,
+main .markdown code:not(pre > code),
+main .markdown tt,
+main .markdown .footnotes {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+main .blob-code-inner,
+main .blob-num {
+  font-size: 0.875rem;
+}
+
 main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
 }
