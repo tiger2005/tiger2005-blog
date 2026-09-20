@@ -1015,7 +1015,7 @@ article :is(.note-block, .success-block, .warning-block, .error-block) .copy-but
 
 article span[role="math"] > svg,
 article figure[role="math"] > svg,
-article .typst-frame {
+article .auto-frame svg {
   filter: var(--math-filter) !important;
 }
 
@@ -1024,9 +1024,8 @@ article .disable-filter svg {
 }
 
 article figure[role="math"] {
-  display: block;
+  display: flex;
   width: 100%;
-  text-align: center;
   margin: 1rem 0 0 0;
   padding: 0.5rem 0;
   font-size: 1.2em;
@@ -1036,8 +1035,10 @@ article figure[role="math"] {
 }
 
 article figure[role="math"] > * {
-  display: inline-block;
+  flex: 0 0 auto;
   min-width: max-content;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 
