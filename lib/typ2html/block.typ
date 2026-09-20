@@ -15,11 +15,15 @@
   }
 }
 
+#let block-body(body) = {
+  html.div(class: "block-body", body)
+}
+
 #let note(title: none, body) = context {
   html-guard(() => {
     html.div(class: "note-block", {
       block-title(title)
-      body
+      block-body(body)
     })
   }, fallback: () => {
     if title == none {
@@ -34,7 +38,7 @@
   html-guard(() => {
     html.div(class: "success-block", {
       block-title(title)
-      body
+      block-body(body)
     })
   }, fallback: () => {
     if title == none {
@@ -49,7 +53,7 @@
   html-guard(() => {
     html.div(class: "warning-block", {
       block-title(title)
-      body
+      block-body(body)
     })
   }, fallback: () => {
     if title == none {
@@ -65,7 +69,7 @@
   html-guard(() => {
     html.div(class: "error-block", {
       block-title(title)
-      body
+      block-body(body)
     })
   }, fallback: () => {
     if title == none {

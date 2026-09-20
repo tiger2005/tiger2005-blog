@@ -1370,6 +1370,14 @@ article .error-block > *:last-child {
   margin-bottom: 0 !important;
 }
 
+article :is(.note-block, .success-block, .warning-block, .error-block) > .block-body > *:first-child {
+  margin-top: 0;
+}
+
+article :is(.note-block, .success-block, .warning-block, .error-block) > .block-body > *:last-child {
+  margin-bottom: 0 !important;
+}
+
 article .note-block .quote-block,
 article .success-block .quote-block,
 article .warning-block .quote-block,
