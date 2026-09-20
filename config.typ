@@ -87,7 +87,8 @@
   "模拟费用流": ("preset": "cyan", "icon": "/assets/icons/flow--modeler--reference.svg"),
   "Lean": ("preset": "purple", "icon": "/assets/icons/square-fill.svg"),
   "Typst": ("preset": "teal", "icon": "/assets/icons/pen.svg"),
-  "CTF": ("preset": "green", "icon": "/assets/icons/flag.svg")
+  "CTF": ("preset": "green", "icon": "/assets/icons/flag.svg"),
+  "NOI 系列真题": ("preset": "cool-gray", "icon": "/assets/icons/notebook.svg")
 )
 
 #let giscus-config = (
@@ -139,4 +140,15 @@
   set grid(inset: 8pt)
 
   (templates.post)(..args)
+}
+
+#let choice(a, b, c, d) = context {
+  html-guard(() => {
+    html.ol(type: "A", {
+      html.li(a)
+      html.li(b)
+      html.li(c)
+      html.li(d)
+    })
+  }, fallback: () => enum(numbering: "A.", a, b, c, d))
 }
