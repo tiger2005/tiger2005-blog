@@ -15,11 +15,12 @@
   author: none,
   description: none,
   canonical-url: none,
-  page-path: none,
+  is-article: false,
   tags: (),
+  category: "",
+  published-time: none,
 ) = {
-  let clean-page-path = if page-path == none { "" } else { str(page-path).trim("/") }
-  let og-type = if clean-page-path == "" { "website" } else { "article" }
+  let og-type = if is-article { "article" } else { "website" }
 
   html.elem("meta", attrs: (property: "og:title", content: title))
   html.elem("meta", attrs: (property: "og:type", content: og-type))
@@ -49,6 +50,15 @@
     }
   }
 
+  if og-type == "article" {
+    if str(category) != "" {
+      html.elem("meta", attrs: (property: "article:section", content: category))
+    }
+    if published-time != none and str(published-time) != "" {
+      html.elem("meta", attrs: (property: "article:published_time", content: published-time))
+    }
+  }
+
   html.meta(name: "twitter:card", content: "summary")
 }
 
@@ -63,7 +73,9 @@
   canonical-path: none,
   include-rss-link: false,
   feed-path: "/rss.xml",
+  is-article: false,
   tags: (),
+  category: "",
 ) = {
   html.meta(charset: "utf-8")
   html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
@@ -81,10 +93,16 @@
   }
   html.title(page-title)
 
-  if type(date) == datetime {
-    html.meta(name: "date", content: date.display("[year]-[month]-[day]"))
+  let published-time = if type(date) == datetime {
+    date.display("[year]-[month]-[day]")
   } else if type(date) == str and date != "" {
-    html.meta(name: "date", content: date)
+    date
+  } else {
+    none
+  }
+
+  if published-time != none {
+    html.meta(name: "date", content: published-time)
   }
 
   if include-rss-link {
@@ -117,9 +135,11 @@
     title: page-title,
     author: author,
     description: description,
-    page-path: resolved-page-path,
+    is-article: is-article,
     canonical-url: canonical-url,
     tags: tags,
+    category: category,
+    published-time: published-time,
   )
 
   if lang != "" {

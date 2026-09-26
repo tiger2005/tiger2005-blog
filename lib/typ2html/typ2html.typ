@@ -93,7 +93,9 @@
   canonical-path: none,
   date-meta: none,
   head-extra: none,
+  is-article: false,
   tags: (),
+  category: "",
   header-node: none,
   main-node: none,
   footer-node: none,
@@ -135,7 +137,9 @@
             canonical-path: canonical-path,
             include-rss-link: include-rss-link,
             feed-path: feed-path,
+            is-article: is-article,
             tags: tags,
+            category: category,
           )
 
           if head-extra != none {
@@ -293,7 +297,9 @@
       author: author,
       canonical-path: "/posts/" + page-path,
       date-meta: date,
+      is-article: true,
       tags: tags,
+      category: category,
       header-node: make-post-header(header-links, site-title, title),
       main-node: html-guard(() => {
         html.article({
