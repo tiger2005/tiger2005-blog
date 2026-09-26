@@ -16,7 +16,7 @@
           "aria-label": "跳转到此标题",
         ), {
           html.elem("span", attrs: (class: "heading-anchor-icon", "aria-hidden": "true"))
-          html.span(class: "heading-anchor-text", "跳转到……")
+          html.span(class: "heading-anchor-text", "跳转到这里")
         })
         it.body
       })

@@ -1564,9 +1564,11 @@ header .nav-title {
   height: 100%;
   font-weight: 600;
   padding-right: 2rem;
+  padding-left: 1rem;
   line-height: 3rem;
   user-select: none;
   margin-right: 1rem;
+  margin-left: -1rem;
 }
 
 header .nav-title::after {
@@ -1640,6 +1642,18 @@ header .nav-body.has-post-title {
 
 header .nav-body > .nav-body-upper > .nav-body-upper-title {
   font-weight: 600;
+}
+
+header .nav-title,
+header .nav-title:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+header .nav-title:hover,
+header .nav-title:focus,
+header .nav-title:active {
+  color: inherit;
 }
 
 header .nav-body.has-post-title > .nav-body-upper,

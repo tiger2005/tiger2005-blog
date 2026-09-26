@@ -11,7 +11,7 @@
         "aria-label": "打开导航",
       ))[]
 
-      html.div(class: "nav-title", site-title)
+      html.a(class: "nav-title", href: "/", site-title)
 
       html.div(class: "nav-body has-post-title", {
         html.div(class: "nav-body-upper", {
