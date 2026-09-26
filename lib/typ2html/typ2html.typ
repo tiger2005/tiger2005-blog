@@ -8,6 +8,7 @@
 #import "html-guard.typ": html-guard
 #import "math.typ": auto-frame
 #import "metadata.typ": metadata
+#import "heading.typ": template-headings
 
 #let make-theme-preload-script() = html.script(
   type: "text/javascript",
@@ -294,8 +295,10 @@
       main-node: html-guard(() => {
         html.article({
           html.section({
-            content
-            render-footnotes()
+            template-headings({
+              content
+              render-footnotes()
+            })
             render-meta(tags, category, date-string-localized, tag-options: tag-options)
             render-giscus(giscus-config)
           })

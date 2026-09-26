@@ -20,6 +20,7 @@
 
   --text-primary: var(--gray-100);
   --text-secondary: var(--gray-70);
+  --text-placeholder: var(--gray-40);
   --text-disabled: color-mix(in srgb, var(--text-primary) 25%, transparent);
 
   --link: var(--blue-60);
@@ -164,6 +165,7 @@ html[data-theme="white"] {
 
   --text-primary: var(--gray-100);
   --text-secondary: var(--gray-70);
+  --text-placeholder: var(--gray-40);
 
   --link: var(--blue-60);
   --link-hover: var(--blue-70);
@@ -244,6 +246,7 @@ html:not([data-theme]) {
 
   --text-primary: var(--gray-100);
   --text-secondary: var(--gray-70);
+  --text-placeholder: var(--gray-40);
 
   --link: var(--blue-60);
   --link-hover: var(--blue-70);
@@ -323,6 +326,7 @@ html:not([data-theme]) {
     --background-hover: rgba(141, 141, 141, 0.16);
     --text-primary: var(--gray-10);
     --text-secondary: var(--gray-30);
+    --text-placeholder: var(--gray-60);
 
     --link: var(--blue-40);
     --link-hover: var(--blue-30);
@@ -452,6 +456,7 @@ html[data-theme="gray-90"] {
   --background-hover: rgba(141, 141, 141, 0.16);
   --text-primary: var(--gray-10);
   --text-secondary: var(--gray-30);
+  --text-placeholder: var(--gray-60);
 
   --link: var(--blue-40);
   --link-hover: var(--blue-30);
@@ -580,6 +585,7 @@ html[data-theme="gray-100"] {
   --background-hover: rgba(141, 141, 141, 0.16);
   --text-primary: var(--gray-10);
   --text-secondary: var(--gray-30);
+  --text-placeholder: var(--gray-60);
 
   --link: var(--blue-40);
   --link-hover: var(--blue-30);
@@ -812,6 +818,81 @@ article h5 {
   font-size: 1.125rem;
   margin: 1em 0 0 0;
   font-weight: 400;
+}
+
+/* HEADING ANCHOR */
+
+article h2,
+article h3,
+article h4 {
+  position: relative;
+}
+
+article h2::before,
+article h3::before,
+article h4::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+}
+
+article h2::before {
+  height: 1.5em;
+}
+
+article h3::before {
+  height: 1.25em;
+}
+
+article h4::before {
+  height: 1.15em;
+}
+
+article .heading-anchor,
+article .heading-anchor:visited {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-placeholder);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, color 0.15s ease, visibility 0.15s;
+}
+
+article .heading-anchor-icon {
+  width: 1em;
+  height: 1em;
+  mask-image: url("../icons/jump-link.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: currentColor;
+}
+
+article :is(h2, h3, h4):hover > .heading-anchor,
+article .heading-anchor:focus {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+article :is(h2, h3, h4):hover > .heading-anchor:hover,
+article .heading-anchor:focus:hover {
+  color: var(--text-secondary);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 article p {
