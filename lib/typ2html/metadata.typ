@@ -16,6 +16,7 @@
   description: none,
   canonical-url: none,
   page-path: none,
+  tags: (),
 ) = {
   let clean-page-path = if page-path == none { "" } else { str(page-path).trim("/") }
   let og-type = if clean-page-path == "" { "website" } else { "article" }
@@ -39,6 +40,15 @@
     }
   }
 
+  if tags.len() > 0 {
+    html.meta(name: "keywords", content: tags.join(", "))
+    if og-type == "article" {
+      for tag in tags {
+        html.elem("meta", attrs: (property: "article:tag", content: tag))
+      }
+    }
+  }
+
   html.meta(name: "twitter:card", content: "summary")
 }
 
@@ -53,6 +63,7 @@
   canonical-path: none,
   include-rss-link: false,
   feed-path: "/rss.xml",
+  tags: (),
 ) = {
   html.meta(charset: "utf-8")
   html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
@@ -108,6 +119,7 @@
     description: description,
     page-path: resolved-page-path,
     canonical-url: canonical-url,
+    tags: tags,
   )
 
   if lang != "" {

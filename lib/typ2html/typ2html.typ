@@ -93,6 +93,7 @@
   canonical-path: none,
   date-meta: none,
   head-extra: none,
+  tags: (),
   header-node: none,
   main-node: none,
   footer-node: none,
@@ -134,6 +135,7 @@
             canonical-path: canonical-path,
             include-rss-link: include-rss-link,
             feed-path: feed-path,
+            tags: tags,
           )
 
           if head-extra != none {
@@ -291,6 +293,7 @@
       author: author,
       canonical-path: "/posts/" + page-path,
       date-meta: date,
+      tags: tags,
       header-node: make-post-header(header-links, site-title, title),
       main-node: html-guard(() => {
         html.article({
