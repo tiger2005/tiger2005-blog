@@ -85,7 +85,7 @@
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation: hero-frame-in var(--phase-fade, 0.3s) ease var(--phase-frame-start, 1.4s) forwards;
+  animation: hero-frame-in var(--phase-frame-dur, 0.45s) linear var(--phase-frame-start, 1.4s) forwards;
 }
 
 @keyframes hero-line-draw {
@@ -138,11 +138,27 @@
 }
 
 @keyframes hero-frame-in {
-  from {
+  0% {
     opacity: 0;
     transform: scale(1.05);
   }
-  to {
+  12% {
+    opacity: 0.9;
+  }
+  24% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  55% {
+    opacity: 0.45;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
     opacity: 1;
     transform: scale(1);
   }

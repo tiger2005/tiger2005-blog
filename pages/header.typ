@@ -274,7 +274,7 @@
 #let draw-triangles = (items, color, offset) => {
   for (i, tri) in items.enumerate() {
     let idx = offset + i
-    let delay = 0.3 + 0.008 * shuffled-indices.at(idx)
+    let delay = 0.4 + 0.006 * shuffled-indices.at(idx)
     html.elem(
       "polygon",
       attrs: (
@@ -346,7 +346,7 @@
 #let gen-header-svg = () => {
   html.elem("svg", attrs: (
     class: "hero-grid-svg",
-    style: "--line-draw: 0.7s; --phase-final-start: 1.2s; --phase-frame-start: 1.2s; --phase-fade: 0.28s; --line-scale: 0.9;",
+    style: "--line-draw: 0.7s; --phase-final-start: 1.2s; --phase-frame-start: 1.2s; --phase-fade: 0.28s; --phase-frame-dur: 0.45s; --line-scale: 0.9;",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 300 300",
     fill: "none",
