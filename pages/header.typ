@@ -6,7 +6,7 @@
   }
 }
 
-#let line = (id, x1, y1, x2, y2, idx) => {
+#let line = (id, x1, y1, x2, y2) => {
   let dx = x2 - x1
   let dy = y2 - y1
   let seglen = calc.sqrt(dx * dx + dy * dy)
@@ -25,8 +25,8 @@
         ),
         {
           html.elem("stop", attrs: (offset: "0%", "stop-color": "gray", "stop-opacity": "0"))
-          html.elem("stop", attrs: (offset: "25%", "stop-color": "gray", "stop-opacity": "1"))
-          html.elem("stop", attrs: (offset: "75%", "stop-color": "gray", "stop-opacity": "1"))
+          html.elem("stop", attrs: (offset: "30%", "stop-color": "gray", "stop-opacity": "1"))
+          html.elem("stop", attrs: (offset: "70%", "stop-color": "gray", "stop-opacity": "1"))
           html.elem("stop", attrs: (offset: "100%", "stop-color": "gray", "stop-opacity": "0"))
         },
       )
@@ -34,8 +34,8 @@
     html.elem(
       "line",
       attrs: (
-        class: "hero-grid-line",
-        style: "--line-delay: " + svg-num(idx) + "; --line-len: " + svg-num(seglen) + ";",
+        class: "hero-grid-line hero-line-shrink",
+        style: "--line-len: " + svg-num(seglen) + ";",
         stroke: "url(#" + id + ")",
         "stroke-width": "1",
         "stroke-linecap": "round",
@@ -63,29 +63,25 @@
 #let cy = 150
 #let len = 210
 #let count = 9
-#let step = 0.05
 #let spacing = len / (count - 1)
 
 #let lines = {
   let result = ()
-  let idx = 0
   for i in range(0, count) {
     let x = cx - len/2 + i * spacing
-    let rlen = len/2 + calc.min(i, count - 1 - i) * calc.sqrt(3) / 3 * spacing
-    result.push(line("lg-v-" + str(i), x, cy - rlen, x, cy + rlen, idx))
-    idx += 1
+    let rlen = len/2 + calc.min(i, count - 1 - i) * calc.sqrt(3) / 3 * spacing + len / 40
+    result.push(line("lg-v-" + str(i), x, cy - rlen, x, cy + rlen))
   }
   for angle in (120, 240) {
     for i in range(0, count) {
-      let rlen = len/2 + calc.min(i, count - 1 - i) * calc.sqrt(3) / 3 * spacing
+      let rlen = len/2 + calc.min(i, count - 1 - i) * calc.sqrt(3) / 3 * spacing + len / 40
       let x1 = cx - len/2 + i * spacing
       let y1 = cy - rlen
       let x2 = cx - len/2 + i * spacing
       let y2 = cy + rlen
       let (rx1, ry1) = rotate(x1, y1, angle, cx, cy)
       let (rx2, ry2) = rotate(x2, y2, angle, cx, cy)
-      result.push(line("lg-r" + str(angle) + "-" + str(i), rx1, ry1, rx2, ry2, idx))
-      idx += 1
+      result.push(line("lg-r" + str(angle) + "-" + str(i), rx1, ry1, rx2, ry2))
     }
   }
   result
@@ -259,11 +255,31 @@
   }
 }
 
-#let draw-triangles = (items, color) => {
-  for tri in items {
+#let lcg-next = (state) => calc.rem(1103515245 * state + 12345, 2147483648)
+
+#let shuffled-indices = {
+  let n = 72
+  let arr = range(0, n)
+  let state = 2005
+  for i in range(n - 1, 0, step: -1) {
+    state = lcg-next(state)
+    let j = calc.rem(state, i + 1)
+    let tmp = arr.at(i)
+    arr.at(i) = arr.at(j)
+    arr.at(j) = tmp
+  }
+  arr
+}
+
+#let draw-triangles = (items, color, offset) => {
+  for (i, tri) in items.enumerate() {
+    let idx = offset + i
+    let delay = 0.3 + 0.008 * shuffled-indices.at(idx)
     html.elem(
       "polygon",
       attrs: (
+        class: "tri-preview-tri",
+        style: "--tri-delay: " + svg-num(delay) + "s;",
         points: tri-points(tri),
         fill: color,
         "fill-opacity": "0.2",
@@ -289,10 +305,48 @@
   }
 }
 
+#let draw-frame = () => {
+  html.elem(
+    "rect",
+    attrs: (
+      x: "30",
+      y: "30",
+      width: "240",
+      height: "240",
+      fill: "none",
+      stroke: "gray",
+      "stroke-width": "1.2",
+    ),
+  )
+  html.elem(
+    "rect",
+    attrs: (
+      x: "38",
+      y: "17",
+      width: "124",
+      height: "26",
+      fill: "var(--background)",
+    ),
+  )
+  html.elem(
+    "text",
+    attrs: (
+      x: "42",
+      y: "30",
+      fill: "gray",
+      "font-family": "'IBM Plex Mono', 'Courier New', monospace",
+      "font-size": "20",
+      "letter-spacing": "1",
+      "dominant-baseline": "central",
+    ),
+    "TIGER2005",
+  )
+}
+
 #let gen-header-svg = () => {
   html.elem("svg", attrs: (
     class: "hero-grid-svg",
-    style: "--line-step: " + svg-num(step) + "s; --line-draw: 0.3s; --phase-tri-start: 2s; --phase-final-start: 3s; --phase-fade: 0.5s;",
+    style: "--line-draw: 0.7s; --phase-final-start: 1.2s; --phase-frame-start: 1.2s; --phase-fade: 0.28s; --line-scale: 0.9;",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 300 300",
     fill: "none",
@@ -305,15 +359,18 @@
       }
     })
     html.elem("g", attrs: (class: "tri-preview-layer"), {
-      draw-triangles(triangles.at("red"), "#D73A34")
-      draw-triangles(triangles.at("green"), "#58AC59")
-      draw-triangles(triangles.at("blue"), "#444FC3")
+      draw-triangles(triangles.at("red"), "#D73A34", 0)
+      draw-triangles(triangles.at("green"), "#58AC59", 24)
+      draw-triangles(triangles.at("blue"), "#444FC3", 48)
     })
     html.elem("g", attrs: (class: "final-layer"), {
       draw-triangles-final(triangles.at("red"), "#D73A34")
       draw-triangles-final(triangles.at("green"), "#58AC59")
       draw-triangles-final(triangles.at("blue"), "#444FC3")
       draw-borders()
+    })
+    html.elem("g", attrs: (class: "frame-layer"), {
+      draw-frame()
     })
   })
 }

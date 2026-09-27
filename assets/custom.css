@@ -50,28 +50,42 @@
   stroke-dasharray: var(--line-len);
   stroke-dashoffset: var(--line-len);
   animation-name: hero-line-draw;
-  animation-duration: var(--line-draw, 0.3s);
-  animation-delay: calc(var(--line-delay, 0) * var(--line-step, 0.05s));
-  animation-timing-function: ease-out;
+  animation-duration: var(--line-draw, 0.7s);
+  animation-timing-function: cubic-bezier(0.4, 0.14, 0.3, 1);
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
 
 .hero-grid-svg .line-layer {
   opacity: 1;
-  animation: hero-layer-fade-out var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-layer-shrink-out var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
 }
 
 .hero-grid-svg .tri-preview-layer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-layer-shrink-only var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
+}
+
+.hero-grid-svg .tri-preview-tri {
   opacity: 0;
-  animation:
-    hero-layer-fade-in var(--phase-fade, 0.5s) ease var(--phase-tri-start, 2s) forwards,
-    hero-layer-fade-out var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
+  animation: hero-layer-fade-in 0.15s ease var(--tri-delay, 0.45s) forwards;
 }
 
 .hero-grid-svg .final-layer {
   opacity: 0;
-  animation: hero-layer-fade-in var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-layer-shrink-in var(--phase-fade, 0.5s) ease var(--phase-final-start, 3s) forwards;
+}
+
+.hero-grid-svg .frame-layer {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-frame-in var(--phase-fade, 0.3s) ease var(--phase-frame-start, 1.4s) forwards;
 }
 
 @keyframes hero-line-draw {
@@ -92,12 +106,45 @@
   }
 }
 
-@keyframes hero-layer-fade-out {
+@keyframes hero-layer-shrink-out {
   from {
     opacity: 1;
+    transform: scale(1);
   }
   to {
     opacity: 0;
+    transform: scale(var(--line-scale, 0.92));
+  }
+}
+
+@keyframes hero-layer-shrink-only {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(var(--line-scale, 0.9));
+  }
+}
+
+@keyframes hero-layer-shrink-in {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(var(--line-scale, 0.92));
+  }
+}
+
+@keyframes hero-frame-in {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
