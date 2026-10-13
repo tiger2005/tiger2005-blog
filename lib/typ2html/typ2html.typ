@@ -9,6 +9,7 @@
 #import "math.typ": auto-frame
 #import "metadata.typ": metadata
 #import "heading.typ": template-headings
+#import "pieces.typ": render-pieces, render-piece-grid, piece-debug, social-hex-centers, svg-num
 
 #let make-theme-preload-script() = html.script(
   type: "text/javascript",

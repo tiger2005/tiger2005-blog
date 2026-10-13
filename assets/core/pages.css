@@ -121,13 +121,13 @@
 }
 
 .pages-container h3 {
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
   margin: 1.25em 0 0 0;
   font-weight: 400;
 }
 
 .pages-container h4 {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   margin: 1.15em 0 0 0;
   font-weight: 400;
 }
@@ -396,7 +396,7 @@
 .archive-year-label {
   font-size: 1.5rem;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -431,7 +431,7 @@
 
 .archive-entry-date {
   position: relative;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono-stack);
   font-size: 0.875rem;
   line-height: 1.4;
   color: var(--text-secondary);
@@ -520,7 +520,7 @@
   background-color: var(--tag-background);
   color: var(--tag-color) !important;
   text-decoration: none !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.11s ease, border-color 0.11s ease;
 }
 
 .tag-card:hover {
@@ -649,76 +649,6 @@
   font-size: 0.875rem;
   line-height: 1rem;
   color: var(--text-secondary);
-}
-
-/* HOMEPAGE */
-
-.homepage-header {
-  position: relative;
-  height: 15rem;
-  user-select: none;
-  margin-bottom: 4rem;
-}
-
-.homepage-header > div {
-  font-size: 6rem;
-  font-weight: 600;
-}
-
-.homepage-header-carbon {
-  position: absolute;
-  top: 0;
-  left: 35%;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, var(--carbon) 30%, transparent);
-  background-clip: text;
-  color: transparent;
-}
-
-.homepage-header-typst {
-  position: absolute;
-  top: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, var(--typst) 30%, transparent);
-  background-clip: text;
-  color: transparent;
-}
-
-.homepage-header-blog {
-  position: absolute;
-  bottom: 0;
-  left: 65%;
-  transform: translateX(-50%);
-  color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-  .homepage-header-carbon {
-    left: 45%;
-  }
-
-  .homepage-header-typst {
-    left: 55%;
-  }
-
-  .homepage-header-blog {
-    left: 65%;
-  }
-}
-
-@media (max-width: 480px) {
-  .homepage-header {
-    height: 10rem;
-  }
-
-  .homepage-header > div {
-    font-size: 4rem;
-  }
-
-  .homepage-header-typst {
-    top: 2rem;
-  }
 }
 
 /* ERROR BLOCK */

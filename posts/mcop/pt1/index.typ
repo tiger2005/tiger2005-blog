@@ -6,7 +6,7 @@
   description: "本文主要讲解 Hu-Shing 算法的第一部分内容，包含如何将矩阵链乘积问题转化为一个凸多边形划分问题，以及最优划分的一些基础性质。",
   tags: ("矩阵链乘积问题",),
   category: "Hu-Shing 算法合集",
-  date: datetime(year: 2026, month: 3, day: 25)
+  date: datetime(year: 2026, month: 3, day: 25),
 )
 
 = 引入

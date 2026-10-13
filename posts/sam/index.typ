@@ -6,7 +6,7 @@
   description: "本文尝试以一种较为直观的角度看待后缀自动机、后缀链接树和结束位置集合，并尝试给出关于状态数、转移数和时间复杂度的证明。",
   tags: ("字符串", ),
   category: "",
-  date: datetime(year: 2026, month: 5, day: 13)
+  date: datetime(year: 2026, month: 5, day: 13),
 )
 
 // #set page(fill: black.lighten(10%))

@@ -6,7 +6,7 @@
   description: "本文包含第 43 次 CCF CSP 认证 T4 “数字分组” 和 T5 “奇” 的题解。",
   tags: ("数论", "数据结构", "图论"),
   category: "CCF CSP 题解",
-  date: datetime(year: 2026, month: 9, day: 13)
+  date: datetime(year: 2026, month: 9, day: 13),
 )
 
 = T4 数字分组
